@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="parent">
+        <button id="btn">Add</button>
+        <input id="input" type="text" name="name" value="" />
+        <ul id="list">
+            
+        </ul>
+    </div>
+
+    <script>
+        const addUL = () => {
+            const elem = document.createElement('li');
+            let value = document.getElementById('input').value;
+            let textNode = document.createTextNode(value);
+            elem.appendChild(textNode);
+
+            const checkBox = document.createElement('input');
+            checkBox.type = 'checkbox';
+            elem.appendChild(checkBox);
+
+            const deleteButton = document.createElement('button')
+            deleteButton.innerHTML = "Delete";
+            deleteButton.classList.add('deleteButton')
+
+            deleteButton.addEventListener('click', () => {
+                elem.remove();
+            });
+
+            elem.appendChild(deleteButton);
+
+            document.getElementById('list').appendChild(elem);
+        };
+        
+        const addCheckBox = () => {
+            const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
+            checkBoxes.forEach((checkBox) => {
+                checkBox.addEventListener('change', function () {
+                    const listItem = this.parentElement;
+                    if (this.checked) {
+                        listItem.style.backgroundColor = 'green';
+                    } else {
+                        listItem.style.backgroundColor = 'white';
+                    }
+                });
+            });
+        };
+
+        const deleteItem = () => {
+            const getItems = document.getElementById('list')
+            const deleteButton = document.getElementsByClassName('deleteButton')
+            getItems.removeChild('li')
+            
+            
+        }
+
+        document.getElementById('btn').addEventListener('click', addUL)
+        document.getElementById('btn').addEventListener('click', addCheckBox)
+        document.getElementsByClassName('deleteButton').addEventListener('click', deleteItem)
+    </script>
+</body>
+</html>

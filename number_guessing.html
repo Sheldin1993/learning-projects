@@ -5,6 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Guessing Game</title>
     <link rel="stylesheet" href="./number_guessing.css">
+    <style>
+           /* Neon Color Palette */
+        :root {
+            --neon-pink: #ff6ec7;
+            --neon-blue: #39ff14;
+            --neon-green: #30e3ca;
+            --neon-purple: #d476e3;
+        }
+
+        /* Neon Text */
+        h1, p, #feedback {
+            color: var(--neon-pink);
+            text-shadow: 2px 2px 4px rgba(255, 110, 199, 0.5);
+            transition: text-shadow 0.3s ease-in-out;
+        }
+
+        /* Neon Input and Button */
+        input[type="number"], button {
+            background-color: var(--neon-purple);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        input[type="number"]:hover, button:hover {
+            background-color: var(--neon-blue);
+            transform: scale(1.05);
+        }
+
+        /* Neon Animation */
+        @keyframes neonPulse {
+            0%, 100% {
+                text-shadow: 2px 2px 8px rgba(255, 110, 199, 0.8);
+            }
+            50% {
+                text-shadow: 2px 2px 12px rgba(255, 110, 199, 1);
+            }
+        }
+
+        /* Apply animation to neon elements */
+        .neon-animate {
+            animation: neonPulse 2s infinite;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
